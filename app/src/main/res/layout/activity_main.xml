@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.DayNight">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:minHeight="?actionBarSize"
+            android:padding="@dimen/appbar_padding"
+            android:text="@string/app_name"
+            android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textSize="20sp"
+            android:id="@+id/txt_searchtext"
+            android:hint="search"
+            android:textAlignment="center"
+            android:layout_margin="10dp"/>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:tabMode="scrollable"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="72dp"
+        android:layout_height="76dp"
+        android:layout_gravity="end|bottom"
+        android:layout_marginStart="350dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="650dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_add_black_24dp"
+        android:visibility="visible"
+        app:backgroundTint="#0B5997"
+        app:elevation="5dp"
+        app:fabCustomSize="70dp"
+        app:fabSize="normal"
+        app:maxImageSize="100sp"
+        app:pressedTranslationZ="12dp"
+        app:rippleColor="#E4141414"
+        tools:visibility="visible" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_marginStart="350dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="600dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="100dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_add_black_24dp"
+        android:visibility="invisible"
+        app:backgroundTint="#F54710"
+        app:elevation="6dp"
+        app:fabCustomSize="45sp"
+        app:fabSize="normal"
+        app:maxImageSize="55dp"
+        app:rippleColor="#0C0C0C" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_marginStart="350dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="600dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="150dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_add_black_24dp"
+        android:visibility="invisible"
+        app:backgroundTint="#065899"
+        app:elevation="6dp"
+        app:fabCustomSize="45sp"
+        app:fabSize="normal"
+        app:maxImageSize="60dp"
+        app:rippleColor="#0C0C0C" />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

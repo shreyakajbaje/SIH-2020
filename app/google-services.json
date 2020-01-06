@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "594845968918",
+    "firebase_url": "https://goaapp-2f349.firebaseio.com",
+    "project_id": "goaapp-2f349",
+    "storage_bucket": "goaapp-2f349.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594845968918:android:46c59151b3428b963b2337",
+        "android_client_info": {
+          "package_name": "com.example.goaapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594845968918-nc7vmn14ae2gjvdvetpc8jsm48191vtn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.goaapp",
+            "certificate_hash": "1308b6135e0a43e86c0069b5e7752b14c2264841"
+          }
+        },
+        {
+          "client_id": "594845968918-f42jqf4kmi5t371oc2nqcr7pnodbi9u6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAh5NtFJ-ArJlciU_6trGknmZbwb80rF2g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594845968918-f42jqf4kmi5t371oc2nqcr7pnodbi9u6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
