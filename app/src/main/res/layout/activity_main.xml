@@ -50,71 +50,78 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
-        android:layout_width="72dp"
-        android:layout_height="76dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
-        android:layout_marginStart="350dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="650dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="16dp"
+        android:layout_margin="16dp"
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/ic_add_black_24dp"
         android:visibility="visible"
         app:backgroundTint="#0B5997"
-        app:elevation="5dp"
-        app:fabCustomSize="70dp"
+        app:elevation="30dp"
+        app:fabCustomSize="65dp"
         app:fabSize="normal"
-        app:maxImageSize="100sp"
+        app:maxImageSize="55dp"
         app:pressedTranslationZ="12dp"
         app:rippleColor="#E4141414"
         tools:visibility="visible" />
+<!--        android:layout_marginStart="350dp"-->
+<!--        android:layout_marginLeft="16dp"-->
+<!--        android:layout_marginTop="650dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:layout_marginRight="50dp"-->
+<!--        android:layout_marginBottom="16dp"-->
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
-        android:layout_marginStart="350dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="600dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="100dp"
+        android:layout_margin="55sp"
         android:clickable="true"
         android:focusable="true"
-        android:src="@drawable/ic_add_black_24dp"
+        android:src="@drawable/ic_camera_img"
         android:visibility="invisible"
-        app:backgroundTint="#F54710"
+        app:backgroundTint="#009688"
         app:elevation="6dp"
         app:fabCustomSize="45sp"
         app:fabSize="normal"
-        app:maxImageSize="55dp"
-        app:rippleColor="#0C0C0C" />
+        app:maxImageSize="50dp"
+        app:rippleColor="#FDF7F7" />
+
+<!--    android:layout_marginStart="350dp"-->
+<!--    android:layout_marginLeft="16dp"-->
+<!--    android:layout_marginTop="600dp"-->
+<!--    android:layout_marginEnd="16dp"-->
+<!--    android:layout_marginRight="15sp"-->
+<!--    android:layout_marginBottom="150dp"-->
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
-        android:layout_marginStart="350dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="600dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="150dp"
         android:clickable="true"
         android:focusable="true"
-        android:src="@drawable/ic_add_black_24dp"
+        android:paddingLeft="100dp"
+        android:layout_margin="85sp"
+        android:src="@drawable/ic_upload_img"
         android:visibility="invisible"
-        app:backgroundTint="#065899"
+        app:backgroundTint="#009688"
         app:elevation="6dp"
         app:fabCustomSize="45sp"
         app:fabSize="normal"
-        app:maxImageSize="60dp"
-        app:rippleColor="#0C0C0C" />
+        app:maxImageSize="50dp"
+        app:rippleColor="#009688" />
+<!--        android:layout_marginStart="350dp"-->
+<!--        android:layout_marginLeft="16dp"-->
+<!--        android:layout_marginTop="600dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:layout_marginRight="50dp"-->
+<!--        android:layout_marginBottom="110dp"-->
+<!--        -->
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
