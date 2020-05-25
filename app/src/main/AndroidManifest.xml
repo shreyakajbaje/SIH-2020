@@ -2,13 +2,28 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.goaapp">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.google.android.provoders.gsf.permission.READ_GSERVICES" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".forgotpassword"></activity>
+        <activity android:name=".ListDetail"></activity>
+        <activity android:name=".FeedBackList" />
+        <activity android:name=".RecyclerList" />
+        <activity android:name=".Profile" />
+        <activity android:name=".PicFromGallery" />
+        <activity android:name=".PicWithCamera" />
+        <activity android:name=".forgotpassword" />
         <activity android:name=".MainActivity" />
         <activity android:name=".register" />
         <activity
@@ -22,7 +37,5 @@
             </intent-filter>
         </activity>
     </application>
-
-
 
 </manifest>

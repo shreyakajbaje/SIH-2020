@@ -5,10 +5,16 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 /**
@@ -62,12 +68,49 @@ public class HomeTab extends Fragment {
         }
     }
 
+
+    RecyclerView mRecyclerView;
+    FirebaseDatabase mFirebaseDatabase;
+    DatabaseReference mRef;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home_tab, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_tourist_places, container, false);
+        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recycleView);
+        mRecyclerView.setHasFixedSize(true);
+
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        mRef = mFirebaseDatabase.getReference("Restaurants");
+
+        return rootView;
     }
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        FirebaseRecyclerAdapter<Model, ViewHolder> firebaseRecyclerAdapter =
+                new FirebaseRecyclerAdapter<Model, ViewHolder>(
+                        Model.class,
+                        R.layout.row,
+                        ViewHolder.class,
+                        mRef
+                ) {
+                    @Override
+                    protected void populateViewHolder(ViewHolder viewHolder, Model model, int i) {
+
+                        viewHolder.setDetails(getActivity().getApplicationContext(), model.getTitle(), model.getLocation(), model.getImage());
+                    }
+                };
+
+        mRecyclerView.setAdapter(firebaseRecyclerAdapter);
+
+    }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

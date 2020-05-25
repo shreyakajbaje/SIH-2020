@@ -28,13 +28,17 @@ public class login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
 
+        firebaseAuth=FirebaseAuth.getInstance();
+        if(firebaseAuth.getCurrentUser()!=null){
+            startActivity(new Intent(login.this, MainActivity.class));
+            finish();
+        }
+        setContentView(R.layout.activity_login);
 
         txtemail=(EditText)findViewById(R.id.txt_email);
         txtPassword=(EditText)findViewById(R.id.txt_password);
         btn_login=(Button)findViewById(R.id.btn_login);
-        firebaseAuth=FirebaseAuth.getInstance();
         forgotpasswordlink=(TextView)findViewById(R.id.textView2);
 
 
@@ -69,9 +73,11 @@ public class login extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-
-                                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-
+                                    SharedPrefs.saveSharedSetting(login.this, "CaptainCode", "false");
+                                    Intent ImLoggedIn = new Intent(login.this, MainActivity.class);
+                                    startActivity(ImLoggedIn);
+                                    Toast.makeText(getApplicationContext(), "Welcome To Goa App !!",Toast.LENGTH_SHORT).show();
+                                    finish();
 
                                 } else {
 

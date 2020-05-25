@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Profile"
+        >
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="193dp"
+            android:layout_height="62dp"
+            android:layout_marginBottom="520dp"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="214dp"
+            android:layout_height="68dp"
+            android:layout_marginBottom="420dp"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/fn"
+            android:layout_width="154dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="192dp"
+            android:layout_marginBottom="536dp"
+            android:text="User Name:"
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/name"
+            android:layout_marginRight="192dp" />
+
+        <TextView
+            android:id="@+id/ue"
+            android:layout_width="197dp"
+            android:layout_height="57dp"
+            android:layout_marginEnd="132dp"
+            android:layout_marginBottom="432dp"
+            android:text="Email Id:"
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginRight="132dp" />
+
+        <TextView
+            android:id="@+id/profile"
+            android:layout_width="316dp"
+            android:layout_height="82dp"
+            android:layout_marginBottom="624dp"
+            android:text="PROFILE PAGE"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="35dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="170dp"
+            android:layout_height="58dp"
+            android:layout_marginEnd="188dp"
+            android:layout_marginBottom="348dp"
+            android:text="Contact Number:"
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginRight="188dp" />
+
+        <TextView
+            android:id="@+id/contact"
+            android:layout_width="186dp"
+            android:layout_height="55dp"
+            android:layout_marginBottom="348dp"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

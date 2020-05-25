@@ -3,6 +3,7 @@ package com.example.goaapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,11 +17,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class register extends AppCompatActivity {
 
 
-    EditText txtEmail,txtPassword,txtConfirmPassword,txtName;
+    EditText txtEmail,txtPassword,txtConfirmPassword,txtName,txtcontact;
     Button btn_register;
     ProgressBar progressBar;
     private FirebaseAuth firebaseAuth;
@@ -35,6 +38,7 @@ public class register extends AppCompatActivity {
         progressBar=(ProgressBar) findViewById(R.id.progressBar);
         txtName=(EditText) findViewById(R.id.name);
         txtEmail=(EditText)findViewById(R.id.txt_email);
+        txtcontact = (EditText) findViewById(R.id.contact);
 
 
         firebaseAuth= FirebaseAuth.getInstance();
@@ -45,11 +49,11 @@ public class register extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                String email=txtEmail.getText().toString().trim();
+                final String email=txtEmail.getText().toString().trim();
                 String password=txtPassword.getText().toString().trim();
                 String confirpassword=txtConfirmPassword.getText().toString().trim();
-                String name1=txtName.getText().toString().trim();
-
+                final String name1=txtName.getText().toString().trim();
+                final String contact = txtcontact.getText().toString().trim();
 
 
 
@@ -82,11 +86,15 @@ public class register extends AppCompatActivity {
                     Toast.makeText(register.this, "PASSWORD TOO SHORT", Toast.LENGTH_SHORT).show();
                 }
 
+                if (contact.length() != 10) {
+
+                    Toast.makeText(register.this, "ENTER 10 DIGIT VALID CONTACT NUMBER", Toast.LENGTH_SHORT).show();
+                }
 
                 progressBar.setVisibility(View.VISIBLE);
 
 
-                if(password.equals(confirpassword)){
+                if((password.equals(confirpassword)&& (contact.length()==10))){
 
                     firebaseAuth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(register.this, new OnCompleteListener<AuthResult>() {
@@ -97,8 +105,16 @@ public class register extends AppCompatActivity {
                                     progressBar.setVisibility(View.GONE);
                                     if (task.isSuccessful()) {
 
-                                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                                        Toast.makeText(register.this, "REGISTRATION COMPLETE", Toast.LENGTH_SHORT).show();
+                                        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                                        DatabaseReference myref = firebaseDatabase.getReference(firebaseAuth.getUid());
+                                        UserProfile userProfile = new UserProfile(name1, email, contact);
+                                        myref.setValue(userProfile);
+
+                                        Toast.makeText(getApplicationContext(),"You are Successfully Registered...", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(register.this, login.class));
+                                        finish();
+                                       /* startActivity(new Intent(getApplicationContext(), login.class));
+                                        Toast.makeText(register.this, "You are Successfully Registered...", Toast.LENGTH_SHORT).show();*/
                                     } else {
 
                                         Toast.makeText(register.this, "AUTHENTICATION FAILED", Toast.LENGTH_SHORT).show();
@@ -116,7 +132,48 @@ public class register extends AppCompatActivity {
             }
         });
 
+        checkDataEntered();
 
+
+
+    }
+    boolean isEmail(EditText txtEmail)
+    {
+        CharSequence email = txtEmail.getText().toString();
+        return (!TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches());
+    }
+    boolean isContact(EditText txtcontact)
+    {
+        CharSequence contact = txtcontact.getText().toString();
+        return (!TextUtils.isEmpty(contact) && Patterns.PHONE.matcher(contact).matches());
+    }
+
+
+
+    boolean isEmpty(EditText text) {
+        CharSequence str = text.getText().toString();
+        return TextUtils.isEmpty(str);
+    }
+
+    void checkDataEntered() {
+        if (isEmpty(txtName)) {
+            Toast t = Toast.makeText(this, "You must enter first name to register!", Toast.LENGTH_SHORT);
+            t.show();
+        }
+
+        if (isEmpty(txtEmail)) {
+            txtEmail.setError("Email Id is required!");
+        }
+        if (isEmpty(txtcontact)) {
+            txtcontact.setError("Contact is required!");
+        }
+
+        if (isEmail(txtEmail) == false) {
+            txtEmail.setError("Enter valid email!");
+        }
+        if (isContact(txtcontact) == false) {
+            txtcontact.setError("Enter valid Contact!");
+        }
 
     }
 }
